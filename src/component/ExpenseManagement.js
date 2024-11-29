@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
+import deleteIcon from "../assets/delete.png";
+import editIcon from "../assets/edit.png";
 
 const ExpenseManagement = () => {
   const { userId } = useParams(); // Extract userId from the route
@@ -92,18 +94,14 @@ const ExpenseManagement = () => {
       gap: "10px",
     },
     actionButton: {
-      padding: "5px 10px",
-      fontSize: "14px",
-      border: "none",
-      borderRadius: "4px",
+      padding: "4px 10px",
+      fontSize: "13px",
       cursor: "pointer",
     },
     editButton: {
-      backgroundColor: "#28a745",
       color: "#fff",
     },
     deleteButton: {
-      backgroundColor: "#dc3545",
       color: "#fff",
     },
   };
@@ -265,13 +263,27 @@ const ExpenseManagement = () => {
                     style={{ ...styles.actionButton, ...styles.editButton }}
                     onClick={() => handleEdit(exp)}
                   >
-                    Edit
+                    <img
+                    src={editIcon}
+                    alt="Delete"
+                    style={{
+                      width: "16px",
+                      height: "16px",
+                    }}
+                    />
                   </button>
                   <button
                     style={{ ...styles.actionButton, ...styles.deleteButton }}
                     onClick={() => handleDelete(exp.expenseId)}
                   >
-                    Delete
+                    <img
+                    src={deleteIcon}
+                    alt="Delete"
+                    style={{
+                      width: "16px",
+                      height: "16px",
+                    }}
+                    />
                   </button>
                 </div>
               </td>

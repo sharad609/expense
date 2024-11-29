@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import deleteIcon from "../assets/delete.png";
 
 const UserReport = () => {
   const { userId } = useParams(); // Extract userId from route params
 
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
-  const [generatedDate, setGeneratedDate] = useState("");
   const [totalAmount, setTotalAmount] = useState(""); // State to store total amount
   const [reports, setReports] = useState([]);
   const [error, setError] = useState(""); // To handle API errors
@@ -88,14 +88,11 @@ const UserReport = () => {
       gap: "10px",
     },
     actionButton: {
-      padding: "5px 10px",
-      fontSize: "14px",
-      border: "none",
-      borderRadius: "4px",
+      padding: "4px 10px",
+      fontSize: "13px",
       cursor: "pointer",
     },
     deleteButton: {
-      backgroundColor: "#dc3545",
       color: "#fff",
     },
     error: {
@@ -150,8 +147,11 @@ const UserReport = () => {
       .then((response) => {
         setReports(response.data);
         setError(""); // Clear any previous errors
+        setSuccessMessage("Report generated successfully.");
       })
-      .catch((error) => setError("Failed to generate report"));
+      .catch((error) => {
+        setError("Failed to generate report");
+      });
   };
 
   const handleDelete = (reportId) => {
@@ -159,7 +159,6 @@ const UserReport = () => {
       axios
         .delete(`${API_BASE_URL}/delete/${reportId}`)
         .then((response) => {
-          // After deletion, update the reports state by removing the deleted report
           setReports(reports.filter((report) => report.reportId !== reportId));
           alert("Report deleted successfully!");
         })
@@ -177,10 +176,24 @@ const UserReport = () => {
     return diffDays;
   };
 
+  // Helper function to format date
+  const formatDate = (dateStr) => {
+    const date = new Date(dateStr);
+    return date.toLocaleString("en-US", {
+      timeZone: "UTC",
+      weekday: "short",
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+      hour: "numeric",
+      minute: "numeric",
+      second: "numeric",
+    });
+  };
+
   return (
     <div style={styles.container}>
       <h2 style={styles.heading}>Expense Report Management</h2>
-
       {error && <p style={styles.error}>{error}</p>}
       {successMessage && <p style={styles.successMessage}>{successMessage}</p>}
 
@@ -248,15 +261,23 @@ const UserReport = () => {
               </td>
               <td style={styles.tableCell}>{report.totalAmount}</td>
               <td style={styles.tableCell}>
-                {report.generatedDate}
+                {formatDate(report.generatedDate)}
               </td>
+
               <td style={styles.tableCell}>
                 <div style={styles.actions}>
                   <button
                     style={{ ...styles.actionButton, ...styles.deleteButton }}
                     onClick={() => handleDelete(report.reportId)}
                   >
-                    Delete
+                    <img
+                    src={deleteIcon}
+                    alt="Delete"
+                    style={{
+                      width: "16px",
+                      height: "16px",
+                    }}
+                    />
                   </button>
                 </div>
               </td>

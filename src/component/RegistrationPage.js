@@ -65,22 +65,20 @@ const RegistrationPage = () => {
       justifyContent: "center",
       alignItems: "center",
       height: "100vh",
-      background: "linear-gradient(135deg, #6a11cb, #2575fc, #00b4d8)", // Dynamic gradient with purple and blue
+      background: "linear-gradient(135deg, #6a11cb, #2575fc, #00b4d8)",
       fontFamily: "'Poppins', sans-serif",
       padding: "0 20px",
-      backgroundSize: "cover",  // Ensures the gradient is scaled properly
-      boxShadow: "inset 0 0 100px rgba(0, 0, 0, 0.1)", // Subtle inner shadow for depth
     },
     card: {
       width: "100%",
-      maxWidth: "450px",
+      maxWidth: "477px",
       padding: "40px",
       backgroundColor: "#fff",
       borderRadius: "15px",
       boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)",
       textAlign: "center",
-      backdropFilter: "blur(10px)", // Subtle blur effect on the card
-      backgroundColor: "rgba(255, 255, 255, 0.7)", // Semi-transparent background for the card
+      backdropFilter: "blur(10px)",
+      backgroundColor: "rgba(255, 255, 255, 0.7)",
     },
     heading: {
       fontSize: "2rem",
@@ -97,11 +95,11 @@ const RegistrationPage = () => {
       color: "#555",
     },
     input: {
-      width: "425px",
-      padding: "12px",
+      width: "452px",
+      padding: "10px",
       margin: "10px 0",
       border: "1px solid #ccc",
-      borderRadius: "8px",
+      borderRadius: "5px",
       fontSize: "1rem",
       fontFamily: "'Poppins', sans-serif",
       transition: "0.3s ease",
@@ -141,15 +139,6 @@ const RegistrationPage = () => {
       color: "red",
       fontWeight: "500",
     },
-    linkButton: {
-      marginTop: "10px",
-      color: "#0056b3",
-      background: "transparent",
-      border: "none",
-      cursor: "pointer",
-      fontSize: "1rem",
-      textDecoration: "underline",
-    },
   };
 
   return (
@@ -172,8 +161,6 @@ const RegistrationPage = () => {
               onChange={handleInputChange}
               required
               placeholder="Enter your name"
-              onFocus={(e) => e.target.style = { ...styles.input, ...styles.inputFocus }}
-              onBlur={(e) => e.target.style = { ...styles.input }}
             />
           </div>
           <div>
@@ -189,8 +176,6 @@ const RegistrationPage = () => {
               onChange={handleInputChange}
               required
               placeholder="Enter your phone number"
-              onFocus={(e) => e.target.style = { ...styles.input, ...styles.inputFocus }}
-              onBlur={(e) => e.target.style = { ...styles.input }}
             />
           </div>
           <div>
@@ -206,8 +191,6 @@ const RegistrationPage = () => {
               onChange={handleInputChange}
               required
               placeholder="Enter your email"
-              onFocus={(e) => e.target.style = { ...styles.input, ...styles.inputFocus }}
-              onBlur={(e) => e.target.style = { ...styles.input }}
             />
           </div>
           <div>
@@ -223,8 +206,6 @@ const RegistrationPage = () => {
               onChange={handleInputChange}
               required
               placeholder="Enter your salary"
-              onFocus={(e) => e.target.style = { ...styles.input, ...styles.inputFocus }}
-              onBlur={(e) => e.target.style = { ...styles.input }}
             />
           </div>
           <div>
@@ -240,8 +221,6 @@ const RegistrationPage = () => {
               onChange={handleInputChange}
               required
               placeholder="Enter your password"
-              onFocus={(e) => e.target.style = { ...styles.input, ...styles.inputFocus }}
-              onBlur={(e) => e.target.style = { ...styles.input }}
             />
           </div>
           <button

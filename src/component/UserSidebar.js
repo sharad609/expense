@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
+import NotificationIcon from './NotificationIcon';
 
 const UserNavbar = () => {
   const location = useLocation();
@@ -7,7 +8,7 @@ const UserNavbar = () => {
   const { userId } = useParams();
 
   const handleLogout = () => {
-    navigate("/"); // Navigate to the home page on logout
+    navigate('/'); // Navigate to the home page on logout
   };
 
   const [isHovered, setIsHovered] = useState(false);
@@ -41,7 +42,7 @@ const UserNavbar = () => {
     logoIcon: {
       fontSize: '32px',
       marginRight: '12px',
-      marginBottom: "5px",
+      marginBottom: '5px',
     },
     navLinks: {
       display: 'flex',
@@ -85,6 +86,11 @@ const UserNavbar = () => {
     logoutButtonHover: {
       backgroundColor: '#ff4500',
       transform: 'scale(1.05)',
+    },
+    notificationWrapper: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '20px', // Space between notification icon and logout button
     },
   };
 
@@ -132,15 +138,18 @@ const UserNavbar = () => {
         </Link>
       </div>
 
-      {/* Logout Button */}
-      <button
-        style={styles.logoutButton}
-        onClick={handleLogout}
-        onMouseEnter={(e) => e.target.style.backgroundColor = styles.logoutButtonHover.backgroundColor}
-        onMouseLeave={(e) => e.target.style.backgroundColor = styles.logoutButton.backgroundColor}
-      >
-        Logout
-      </button>
+      {/* Notification Icon and Logout Button */}
+      <div style={styles.notificationWrapper}>
+        <NotificationIcon userId={userId} />
+        <button
+          style={styles.logoutButton}
+          onClick={handleLogout}
+          onMouseEnter={(e) => e.target.style.backgroundColor = styles.logoutButtonHover.backgroundColor}
+          onMouseLeave={(e) => e.target.style.backgroundColor = styles.logoutButton.backgroundColor}
+        >
+          Logout
+        </button>
+      </div>
     </nav>
   );
 };

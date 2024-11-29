@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import backgroundImage from './ExpanseImage.jpeg';
 
 const AdminRegistrationPage = () => {
   const navigate = useNavigate();
@@ -58,7 +57,7 @@ const AdminRegistrationPage = () => {
     }
   };
 
-  // Styles from the reference page
+  // Styles for the component
   const styles = {
     container: {
       display: "flex",
@@ -69,19 +68,17 @@ const AdminRegistrationPage = () => {
       background: "linear-gradient(135deg, #ff7e5f, #feb47b)",
       fontFamily: "'Poppins', sans-serif",
       padding: "0 20px",
-      backgroundSize: "cover",  // Ensures the gradient is scaled properly
-      boxShadow: "inset 0 0 100px rgba(0, 0, 0, 0.1)", // Subtle inner shadow for depth
     },
     card: {
       width: "100%",
-      maxWidth: "450px",
+      maxWidth: "477px",
       padding: "40px",
       backgroundColor: "#fff",
       borderRadius: "15px",
       boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)",
       textAlign: "center",
-      backdropFilter: "blur(10px)", // Subtle blur effect on the card
-      backgroundColor: "rgba(255, 255, 255, 0.7)", // Semi-transparent background for the card
+      backdropFilter: "blur(10px)",
+      backgroundColor: "rgba(255, 255, 255, 0.7)",
     },
     heading: {
       fontSize: "2rem",
@@ -98,7 +95,7 @@ const AdminRegistrationPage = () => {
       color: "#555",
     },
     input: {
-      width: "100%",
+      width: "452px",
       padding: "12px",
       margin: "10px 0",
       border: "1px solid #ccc",
@@ -142,15 +139,6 @@ const AdminRegistrationPage = () => {
       color: "red",
       fontWeight: "500",
     },
-    linkButton: {
-      marginTop: "10px",
-      color: "#0056b3",
-      background: "transparent",
-      border: "none",
-      cursor: "pointer",
-      fontSize: "1rem",
-      textDecoration: "underline",
-    },
   };
 
   return (
@@ -173,8 +161,6 @@ const AdminRegistrationPage = () => {
               onChange={handleInputChange}
               required
               placeholder="Enter your name"
-              onFocus={(e) => e.target.style = { ...styles.input, ...styles.inputFocus }}
-              onBlur={(e) => e.target.style = { ...styles.input }}
             />
           </div>
           <div>
@@ -190,8 +176,6 @@ const AdminRegistrationPage = () => {
               onChange={handleInputChange}
               required
               placeholder="Enter your phone number"
-              onFocus={(e) => e.target.style = { ...styles.input, ...styles.inputFocus }}
-              onBlur={(e) => e.target.style = { ...styles.input }}
             />
           </div>
           <div>
@@ -207,8 +191,6 @@ const AdminRegistrationPage = () => {
               onChange={handleInputChange}
               required
               placeholder="Enter your email"
-              onFocus={(e) => e.target.style = { ...styles.input, ...styles.inputFocus }}
-              onBlur={(e) => e.target.style = { ...styles.input }}
             />
           </div>
           <div>
@@ -224,8 +206,6 @@ const AdminRegistrationPage = () => {
               onChange={handleInputChange}
               required
               placeholder="Enter your salary"
-              onFocus={(e) => e.target.style = { ...styles.input, ...styles.inputFocus }}
-              onBlur={(e) => e.target.style = { ...styles.input }}
             />
           </div>
           <div>
@@ -241,8 +221,6 @@ const AdminRegistrationPage = () => {
               onChange={handleInputChange}
               required
               placeholder="Enter your password"
-              onFocus={(e) => e.target.style = { ...styles.input, ...styles.inputFocus }}
-              onBlur={(e) => e.target.style = { ...styles.input }}
             />
           </div>
           <button
